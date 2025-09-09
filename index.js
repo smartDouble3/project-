@@ -111,7 +111,7 @@
         });
         document.getElementById('signUpFormElement').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+            const confirmPassword = document.getElementById("password_ss").value.trim();
             const name = document.getElementById('Name_sign').value;
             const email = document.getElementById('E_mail_sign').value;
             const password = document.getElementById('password_sign').value;
@@ -131,6 +131,10 @@
                 showMessage('signUpMessage', 'เบอร์โทรศัพท์ไม่ถูกต้อง');
                 return;
             }
+            if (password !== confirmPassword) {
+                showMessage('signUpMessage', 'รหัสผ่านไม่ตรงกัน');
+                return;
+             }
 
             const newUser = { 
                 name, 
